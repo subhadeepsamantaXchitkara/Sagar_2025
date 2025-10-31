@@ -1,0 +1,14 @@
+/* --- Corrected and Cleaned src/index.css --- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Prevents padding/border from breaking layout */
+}
+
+body {
+  margin: 0; /* Removes default browser margin */
+  background-color: #02000f; /* Sets a base dark background color */
+  font-family: 'Poppins', sans-serif; /* Sets a consistent default font */
+  overflow-x: hidden; /* Prevents accidental horizontal scrolling */
+}

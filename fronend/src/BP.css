@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Great+Vibes&display=swap');
+
+body {
+  margin: 0;
+  background-color: #43add0; /* Dark fallback background */
+}
+
+/* Original .birthday-container rules for layout */
+.birthday-container {
+  width: 100%;
+  min-height: 100vh;
+  color: #f0f0f0;
+  overflow-y: auto;
+  padding: 40px 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
+}
+
+section {
+  width: 100%;
+  max-width: 750px;
+  text-align: center;
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+section:nth-of-type(1) { animation-delay: 0.2s; }
+section:nth-of-type(2) { animation-delay: 0.4s; }
+.celebrate-button-container { animation: fadeInUp 1s 0.6s ease-out forwards; opacity: 0; }
+section:nth-of-type(3) { animation-delay: 0.8s; }
+section:nth-of-type(4) { animation-delay: 1.0s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.main-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 40px #ff69b4;
+  margin: 0 0 15px 0;
+}
+
+.subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  color: #ddd;
+  font-weight: 300;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+  color: transparent;
+  background: linear-gradient(90deg, #07fbd2, #0cdde4, #0cd7ee, #0216f6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: 
+    glow-blue 4s ease-in-out infinite,
+    shimmer 4s linear infinite;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 0;
+  background: #4f80e8;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #4f80e8, 0 0 15px #4f80e8;
+  animation: grow-underline 1.2s ease-out 0.5s forwards;
+}
+
+@keyframes glow-blue {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(79, 128, 232, 0.7), 0 0 20px rgba(79, 128, 232, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(113, 153, 241, 0.9), 0 0 40px rgba(113, 153, 241, 0.7);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes grow-underline {
+  to {
+    width: 60%;
+  }
+}
+
+.message-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 25px;
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #eee;
+}
+
+.celebrate-button {
+  background: linear-gradient(45deg, #ff69b4, #9f62ff);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 18px 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+}
+
+.celebrate-button:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.celebrate-button.celebrated {
+  background: linear-gradient(45deg, #d15894, #7c4ddb);
+  cursor: pointer;
+  transform: scale(1);
+  box-shadow: inset 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.fixed-images-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.fixed-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fixed-image:nth-child(2) {
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.fixed-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.music-section {
+  width: 100%;
+}
+
+.player-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.now-playing {
+  margin: 0;
+  font-style: italic;
+  color: #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 15px;
+}
+
+.play-pause-btn {
+  background-color: #12cef3;
+  color: #232526;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.play-pause-btn:hover {
+  background-color: #9e16f9;
+  transform: scale(1.1);
+}
+
+.play-pause-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.song-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.song-item.active {
+  background-color: #9f62ff;
+  color: white;
+  font-weight: bold;
+}
+
+.song-title {
+  font-weight: 500;
+}
+
+.song-artist {
+  color: #bbb;
+  padding-left: 15px;
+}
+
+.song-item.active .song-artist {
+  color: #eee;
+}
+
+/* --- NEW: Thunderstorm Background Effect --- */
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.birthday-container {
+  position: relative;
+  background: linear-gradient(315deg, #340bff, #9d3bee, #3ee3f6, #ce0df0);
+  background-size: 400% 400%;
+  animation: gradient-animation 25s ease infinite;
+}
+
+.birthday-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: #fff;
+  z-index: 0;
+  animation: lightning-flash 6s linear infinite;
+}
+
+@keyframes lightning-flash {
+  0%, 94%, 100% { opacity: 0; }
+  95% { opacity: 0.5; }
+  96% { opacity: 1; }
+  97% { opacity: 0.3; }
+  98% { opacity: 0.8; }
+}
+
+.birthday-container > section,
+.birthday-container > .celebrate-button-container {
+    position: relative;
+    z-index: 1;
+}
